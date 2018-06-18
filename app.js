@@ -14,6 +14,12 @@ app.get('/', (req, res) => {
   })
 });
 
+app.get('/reminders', (req, res) => {
+  res.render('reminder', {
+
+  })
+});
+
 app.listen(port || process.env.PORT, (req, res) => {
   console.log(`Listening to port ${port}.....`);
 });
