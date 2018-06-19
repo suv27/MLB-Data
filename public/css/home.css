@@ -1,6 +1,17 @@
-
+body {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  height: vh;
+  background-color: #a6aab2;
+}
 
 li a i{
   font-size: 25px;
   margin-left: 10px;
+}
+
+.navbar{
+  padding: 0;
+  margin: 0;
 }
