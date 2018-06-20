@@ -88,7 +88,7 @@ $(document).ready(function() {
       // console.log(teamProfile);
       $.getJSON(teamProfile, function(info) {
 
-        teamInfo.push(info); 
+        teamInfo.push(info);
         let teamName = teamInfo[0].name;
         let teamMarket = teamInfo[0].market;
         let leagueName = teamInfo[0].league.name;
