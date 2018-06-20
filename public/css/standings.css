@@ -3,8 +3,7 @@ body {
   margin: 0;
   border: 0;
   background: #005C97;
-  background: -webkit-linear-gradient(360deg, #005C97, #363795);
-  background: linear-gradient(180deg, #FFF, #005C97);
+  background: -webkit-linear-gradient(-90deg, #4b6cb7, #182848);
   background-position-x: 0px;
   background-position-y: 0px;
   background-size: initial;
@@ -25,6 +24,16 @@ li a i {
   border: 0;
   border: 0;
   background-color: #002e6d;
+}
+
+.mlb-logo {
+  width: 45px;
+  height: 25px;
+  margin: 10px 0;
+ }
+
+.navbar-header{
+  display: inline-flex;
 }
 
 .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {

@@ -19,6 +19,16 @@ li a i{
   background-color: #002e6d;
 }
 
+.mlb-logo {
+  width: 45px;
+  height: 25px;
+  margin: 10px 0;
+ }
+
+.navbar-header{
+  display: inline-flex;
+}
+
 .navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
   color: #FFF;
 }
