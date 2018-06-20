@@ -22,7 +22,7 @@ li a i{
 .mlb-logo {
   width: 45px;
   height: 25px;
-  margin: 10px 0;
+  margin: 12px 0;
  }
 
 .navbar-header{
@@ -36,7 +36,6 @@ li a i{
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a:hover {
   color: #000;
 }
-
 
 .navbarContainer{
   width: 70%;
