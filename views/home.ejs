@@ -1,74 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>MLB</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="/css/home.css">
-</head>
-
-<body>
-
-  <%- include('partials/nav') %>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MLB</title>
+    <%- include('partials/links') %>
+    <link rel="stylesheet" type="text/css" href="/css/home.css">
+  </head>
+  <body>
+    <%- include('partials/nav') %>
     <div id="particles-js">
+
       <div class="container">
-
-        <div class="standings">
-          <h1 class="headerForStanding">Standings</h1>
-          <div class="alHeader">
-            <img class="alLogo" src="/pictures/al_symbol.png" alt="no picture">
-            <h3 class="aLeague">American League</h3>
-          </div>
-
-          <table class="standingsTableALE">
-            <thead class="tableHeader">
-              <th class="dg-team_short"></th>
-              <th class="dg-w"></th>
-              <th class="dg-l"></th>
-              <th class="dg-pct"></th>
-              <th class="dg-gb"></th>
-              <th class="dg-gb_wildcard"></th>
-              <th class="dg-streak"></th>
-            </thead>
-            <tbody class="bodyForALE">
-
-            </tbody>
-          </table>
-
-          <table class="standingsTableALC">
-            <thead>
-
-            </thead>
-            <tbody class="bodyForALC">
-
-            </tbody>
-          </table>
-
-          <table class="standingsTableALW">
-            <thead>
-
-            </thead>
-            <tbody class="bodyForALW">
-
-            </tbody>
-          </table>
+        <div class="heading">
+            <h1>Home</h1>
         </div>
-
 
       </div>
     </div>
 
 
-
-
-
-
-
     <%- include('partials/scripts') %>
     <script type="text/javascript" src="/js/home.js"></script>
-</body>
+  </body>
 </html>

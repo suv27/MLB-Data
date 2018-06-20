@@ -19,6 +19,12 @@ app.get('/', (req, res) => {
   })
 });
 
+app.get('/standings', (req, res) => {
+  res. render('standings', {
+
+  })
+});
+
 //Another comment
 app.get('/reminders', (req, res) => {
   res.render('reminder', {
