@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Standings</title>
   <%- include('partials/links') %>
-  <link rel="stylesheet" type="text/css" href="/css/standings.css">
+    <link rel="stylesheet" type="text/css" href="/css/standings.css">
 </head>
 
 <body>
@@ -16,57 +16,120 @@
     <div id="particles-js">
       <div class="container">
 
-        <div class="standings">
+        <div>
           <h1 class="headerForStanding">Standings</h1>
-          <div class="alHeader">
-            <img class="alLogo" src="/pictures/al_symbol.png" alt="no picture">
-            <h3 class="aLeague">American League</h3>
+        </div>
+        <div class="standings">
+          <div class="americanLeague">
+            <div class="alHeader">
+              <img class="alLogo" src="/pictures/al_symbol.png" alt="no picture">
+              <h3 class="aLeague">American League</h3>
+            </div>
+
+            <div>
+              <table class="standingsTableALE">
+                <thead class="tableHeader">
+                  <th class="dg-ale-team_short"></th>
+                  <th class="dg-ale-w"></th>
+                  <th class="dg-ale-l"></th>
+                  <th class="dg-ale-pct"></th>
+                  <th class="dg-ale-gb"></th>
+                  <th class="dg-ale-gb_wildcard"></th>
+                  <th class="dg-ale-streak"></th>
+                </thead>
+                <tbody class="bodyForALE">
+
+                </tbody>
+              </table>
+
+              <table class="standingsTableALC">
+                <thead>
+                  <th class="dg-alc-team_short"></th>
+                  <th class="dg-alc-w"></th>
+                  <th class="dg-alc-l"></th>
+                  <th class="dg-alc-pct"></th>
+                  <th class="dg-alc-gb"></th>
+                  <th class="dg-alc-gb_wildcard"></th>
+                  <th class="dg-alc-streak"></th>
+                </thead>
+                <tbody class="bodyForALC">
+
+                </tbody>
+              </table>
+
+              <table class="standingsTableALW">
+                <thead>
+                  <th class="dg-alw-team_short"></th>
+                  <th class="dg-alw-w"></th>
+                  <th class="dg-alw-l"></th>
+                  <th class="dg-alw-pct"></th>
+                  <th class="dg-alw-gb"></th>
+                  <th class="dg-alw-gb_wildcard"></th>
+                  <th class="dg-alw-streak"></th>
+                </thead>
+                <tbody class="bodyForALW">
+
+                </tbody>
+              </table>
+            </div>
+
           </div>
 
-          <table class="standingsTableALE">
-            <thead class="tableHeader">
-              <th class="dg-ale-team_short"></th>
-              <th class="dg-ale-w"></th>
-              <th class="dg-ale-l"></th>
-              <th class="dg-ale-pct"></th>
-              <th class="dg-ale-gb"></th>
-              <th class="dg-ale-gb_wildcard"></th>
-              <th class="dg-ale-streak"></th>
-            </thead>
-            <tbody class="bodyForALE">
+          <div class="nationalLeague">
+            <div class="nlHeader">
+              <img class="nlLogo" src="/pictures/nl_symbol.png" alt="no picture">
+              <h3 class="nLeague">National League</h3>
+            </div>
 
-            </tbody>
-          </table>
+            <div>
+              <table class="standingsTableNLE">
+                <thead class="tableHeader">
+                  <th class="dg-nle-team_short"></th>
+                  <th class="dg-nle-w"></th>
+                  <th class="dg-nle-l"></th>
+                  <th class="dg-nle-pct"></th>
+                  <th class="dg-nle-gb"></th>
+                  <th class="dg-nle-gb_wildcard"></th>
+                  <th class="dg-nle-streak"></th>
+                </thead>
+                <tbody class="bodyForNLE">
 
-          <table class="standingsTableALC">
-            <thead>
-              <th class="dg-alc-team_short"></th>
-              <th class="dg-alc-w"></th>
-              <th class="dg-alc-l"></th>
-              <th class="dg-alc-pct"></th>
-              <th class="dg-alc-gb"></th>
-              <th class="dg-alc-gb_wildcard"></th>
-              <th class="dg-alc-streak"></th>
-            </thead>
-            <tbody class="bodyForALC">
+                </tbody>
+              </table>
 
-            </tbody>
-          </table>
+              <table class="standingsTableNLC">
+                <thead>
+                  <th class="dg-nlc-team_short"></th>
+                  <th class="dg-nlc-w"></th>
+                  <th class="dg-nlc-l"></th>
+                  <th class="dg-nlc-pct"></th>
+                  <th class="dg-nlc-gb"></th>
+                  <th class="dg-nlc-gb_wildcard"></th>
+                  <th class="dg-nlc-streak"></th>
+                </thead>
+                <tbody class="bodyForNLC">
 
-          <table class="standingsTableALW">
-            <thead>
-              <th class="dg-alw-team_short"></th>
-              <th class="dg-alw-w"></th>
-              <th class="dg-alw-l"></th>
-              <th class="dg-alw-pct"></th>
-              <th class="dg-alw-gb"></th>
-              <th class="dg-alw-gb_wildcard"></th>
-              <th class="dg-alw-streak"></th>
-            </thead>
-            <tbody class="bodyForALW">
+                </tbody>
+              </table>
 
-            </tbody>
-          </table>
+              <table class="standingsTableNLW">
+                <thead>
+                  <th class="dg-nlw-team_short"></th>
+                  <th class="dg-nlw-w"></th>
+                  <th class="dg-nlw-l"></th>
+                  <th class="dg-nlw-pct"></th>
+                  <th class="dg-nlw-gb"></th>
+                  <th class="dg-nlw-gb_wildcard"></th>
+                  <th class="dg-nlw-streak"></th>
+                </thead>
+                <tbody class="bodyForNLW">
+
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+
         </div>
 
 
@@ -80,6 +143,7 @@
 
 
     <%- include('partials/scripts') %>
-    <script type="text/javascript" src="/js/standings.js"></script>
+      <script type="text/javascript" src="/js/standings.js"></script>
 </body>
+
 </html>

@@ -16,6 +16,9 @@ $(document).ready(function() {
     let alEastTeams = americanLeague.divisions[0].teams;
     let alCentralTeams = americanLeague.divisions[1].teams;
     let alWestTeams = americanLeague.divisions[2].teams;
+    let nlEastTeams = nationalLeague.divisions[0].teams;
+    let nlCentralTeams = nationalLeague.divisions[1].teams;
+    let nlWestTeams = nationalLeague.divisions[2].teams;
 
     // AMERICAN LEAGUE
     $('.aLeague').html(americanLeague.name);
@@ -92,6 +95,82 @@ $(document).ready(function() {
              <td>` + alWestTeams[i].games_back + `</td>
              <td>` + alWestTeams[i].wild_card_back + `</td>
              <td>` + alWestTeams[i].streak + `</tr>`
+      );
+    }
+
+    // NATIONAL LEAGUE
+    $('.anLeague').html(nationalLeague.name);
+
+    function teamNLEHeader() {
+      $('.dg-nle-team_short').html(nationalLeague.divisions[0].name);
+      $('.dg-nle-w').html('W');
+      $('.dg-nle-l').html('L');
+      $('.dg-nle-w').html('W');
+      $('.dg-nle-pct').html('PCT');
+      $('.dg-nle-gb').html('GB');
+      $('.dg-nle-gb_wildcard').html('WCGB');
+      $('.dg-nle-streak').html('STRK');
+    }
+
+    function teamNLCHeader() {
+      $('.dg-nlc-team_short').html(nationalLeague.divisions[1].name);
+      $('.dg-nlc-w').html('W');
+      $('.dg-nlc-l').html('L');
+      $('.dg-nlc-w').html('W');
+      $('.dg-nlc-pct').html('PCT');
+      $('.dg-nlc-gb').html('GB');
+      $('.dg-nlc-gb_wildcard').html('WCGB');
+      $('.dg-nlc-streak').html('STRK');
+    }
+
+    function teamNLWHeader() {
+      $('.dg-nlw-team_short').html(nationalLeague.divisions[2].name);
+      $('.dg-nlw-w').html('W');
+      $('.dg-nlw-l').html('L');
+      $('.dg-nlw-w').html('W');
+      $('.dg-nlw-pct').html('PCT');
+      $('.dg-nlw-gb').html('GB');
+      $('.dg-nlw-gb_wildcard').html('WCGB');
+      $('.dg-nlw-streak').html('STRK');
+    }
+
+    // APPENDING THROUGH ALL THE EAST TEAMS AND THEIR INFORMATION
+    teamNLEHeader();
+    for(var i = 0; i < nlEastTeams.length; i++){
+      $(".bodyForNLE").append(
+        `<tr><td>` + nlEastTeams[i].name + `</td>
+             <td>` + nlEastTeams[i].win  + `</td>
+             <td>` + nlEastTeams[i].loss + `</td>
+             <td>` + nlEastTeams[i].win_p + `</td>
+             <td>` + nlEastTeams[i].games_back + `</td>
+             <td>` + nlEastTeams[i].wild_card_back + `</td>
+             <td>` + nlEastTeams[i].streak + `</tr>`
+      );
+    }
+
+    teamNLCHeader();
+    for(var i = 0; i < nlCentralTeams.length; i++){
+      $(".bodyForNLC").append(
+        `<tr><td>` + nlCentralTeams[i].name + `</td>
+             <td>` + nlCentralTeams[i].win  + `</td>
+             <td>` + nlCentralTeams[i].loss + `</td>
+             <td>` + nlCentralTeams[i].win_p + `</td>
+             <td>` + nlCentralTeams[i].games_back + `</td>
+             <td>` + nlCentralTeams[i].wild_card_back + `</td>
+             <td>` + nlCentralTeams[i].streak + `</tr>`
+      );
+    }
+
+    teamNLWHeader();
+    for(var i = 0; i < nlWestTeams.length; i++){
+      $(".bodyForNLW").append(
+        `<tr><td>` + nlWestTeams[i].name + `</td>
+             <td>` + nlWestTeams[i].win  + `</td>
+             <td>` + nlWestTeams[i].loss + `</td>
+             <td>` + nlWestTeams[i].win_p + `</td>
+             <td>` + nlWestTeams[i].games_back + `</td>
+             <td>` + nlWestTeams[i].wild_card_back + `</td>
+             <td>` + nlWestTeams[i].streak + `</tr>`
       );
     }
 
