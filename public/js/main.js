@@ -38,6 +38,6 @@ $(document).ready(function() {
     }
   }
 
-  // initializing the library
+  // initializing the particle.js library
   particlesJS(myJSON);
 });

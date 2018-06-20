@@ -6,7 +6,7 @@ const app = express();
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-const port = 8888;
+const port = 8000;
 const { Pool, Client } = require('pg');
 const parser = require('body-parser');
 app.use(parser.urlencoded({extended: true}));
