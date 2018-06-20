@@ -11,7 +11,25 @@ li a i{
   margin-left: 10px;
 }
 
-.navbar{
+.navbar {
+  height: 25px;
+  margin: 0 auto;
+  border: 0;
+  border: 0;
+  background-color: #002e6d;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
+  color: #FFF;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a:hover {
+  color: #000;
+}
+
+
+.navbarContainer{
+  width: 70%;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }

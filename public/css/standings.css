@@ -2,37 +2,80 @@ body {
   padding: 0;
   margin: 0;
   border: 0;
-  height: 100vh;
-  background-color: #a6aab2;
+  background: #005C97;
+  background: -webkit-linear-gradient(360deg, #005C97, #363795);
+  background: linear-gradient(180deg, #FFF, #005C97);
+  background-position-x: 0px;
+  background-position-y: 0px;
+  background-size: initial;
+  background-attachment: fixed;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
 }
 
-li a i{
+li a i {
   font-size: 25px;
   margin-left: 10px;
 }
 
-.navbar{
-  padding: 0;
-  margin: 0;
+.navbar {
+  height: 25px;
+  margin: 0 auto;
+  border: 0;
+  border: 0;
+  background-color: #002e6d;
 }
 
-.alHeader, .nlHeader{
+.navbar-default .navbar-brand, .navbar-default .navbar-nav>li>a {
+  color: #FFF;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav>li>a:hover {
+  color: #000;
+}
+
+
+.navbarContainer{
+  width: 70%;
+  padding: 0;
+  margin: 0 auto;
+}
+
+canvas#particle-js {
+    background-color: white !important;
+    /* important */
+    position: absolute !important;
+    width: 100% !important; // define your width
+    height: 100% !important; // define your height
+    /* depending on where you want this canvas, you can use left/right/top and bottom properties */
+    left: 0;
+    top: 0;
+}
+
+.container {
+  /* margin-top: 25px; */
+  z-index: 99999;
+  background: #FFF;
+}
+
+.alHeader, .nlHeader {
   padding: 2%;
   display: inline-flex;
 }
 
-.alLogo, .nlLogo{
+.alLogo, .nlLogo {
   width: 50px;
   height: 50px;
 }
 
-th, td{
+th, td {
   width: 0.07%;
   font-weight: 800;
   padding: 10px;
   border: 1px solid white;
 }
 
-th{
+th {
   background-color: #FCFCFC;
 }

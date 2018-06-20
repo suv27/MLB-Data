@@ -13,6 +13,9 @@ $(document).ready(function() {
         "value": 2,
         "random": true
       },
+      "color": {
+        "value": "#FF0000"
+      },
       "line_linked": {
         "enable": true
       },
