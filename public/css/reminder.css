@@ -27,9 +27,34 @@ li a i{
   color: #000;
 }
 
-
 .navbarContainer{
   width: 70%;
   padding: 0;
   margin: 0 auto;
+}
+
+.searchBox input{
+  width: 300px;
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.teamInfo th, .teamInfo td {
+  width: 0.25%;
+  font-weight: 800;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.playersInfo th, .playersInfo td {
+  width: 0.07%;
+  font-weight: 800;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+th {
+  background-color: #FCFCFC;
 }

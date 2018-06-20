@@ -1,9 +1,6 @@
 $(document).ready(function() {
 
   let sportradarApiKey = '656e58ujs4q8a5cbpcabebea';
-  let gamesBoxScore = "http://api.sportradar.us/mlb/trial/v6.5/en/games/b6f922df-46c6-483c-8d3b-4235a6fc4520/boxscore.json?api_key=" + sportradarApiKey;
-  let playerProfile = "http://api.sportradar.us/mlb/trial/v6.5/en/players/6e1cac5c-b059-4b80-a267-5143b19efb27/profile.json?api_key=" + sportradarApiKey;
-  let Rankings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key" + sportradarApiKey;
   let standings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=" + sportradarApiKey;
   let data = [];
 
@@ -173,7 +170,6 @@ $(document).ready(function() {
              <td>` + nlWestTeams[i].streak + `</tr>`
       );
     }
-
   });
 
 });
