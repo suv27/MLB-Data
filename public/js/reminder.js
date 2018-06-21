@@ -2,14 +2,17 @@ $(document).ready(function() {
 
   let teamsID = [];
   let teamsName = [];
+  let teamsMarket = [];
+  let teamsAbbr = [];
   let dictionary = [];
   let teamInfo = [];
+  let playersHolder = [];
+  let playersID = [];
   let sportradarApiKey = '656e58ujs4q8a5cbpcabebea';
   let rankings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=" + sportradarApiKey;
 
   // GETTING ALL THE ID'S FROM THE RANKING URL AND STORING IT INTO AN EMPTY ARRAY
   $.getJSON(rankings, function(info) {
-
 
     let nationalLeagueEast = info.league.season.leagues[0].divisions[0].teams;
     let nationalLeagueCentral = info.league.season.leagues[0].divisions[1].teams;
@@ -23,38 +26,61 @@ $(document).ready(function() {
 
     for (var i = 0; i < nationalLeagueEast.length; i++) {
       teamsID.push(nationalLeagueEast[i].id);
+      teamsAbbr.push(nationalLeagueEast[i].abbr);
       teamsName.push(nationalLeagueEast[i].name);
+      teamsMarket.push(nationalLeagueEast[i].market);
     }
 
     for (var i = 0; i < nationalLeagueCentral.length; i++) {
       teamsID.push(nationalLeagueCentral[i].id);
+      teamsAbbr.push(nationalLeagueCentral[i].abbr);
       teamsName.push(nationalLeagueCentral[i].name);
+      teamsMarket.push(nationalLeagueCentral[i].market);
     }
 
     for (var i = 0; i < nationalLeagueWest.length; i++) {
       teamsID.push(nationalLeagueWest[i].id);
+      teamsAbbr.push(nationalLeagueWest[i].abbr);
       teamsName.push(nationalLeagueWest[i].name);
+      teamsMarket.push(nationalLeagueWest[i].market);
     }
 
     for (var i = 0; i < americanLeagueEast.length; i++) {
       teamsID.push(americanLeagueEast[i].id);
+      teamsAbbr.push(americanLeagueEast[i].abbr);
       teamsName.push(americanLeagueEast[i].name);
+      teamsMarket.push(americanLeagueEast[i].market);
     }
 
     for (var i = 0; i < americanLeagueCentral.length; i++) {
       teamsID.push(americanLeagueCentral[i].id);
+      teamsAbbr.push(americanLeagueCentral[i].abbr);
       teamsName.push(americanLeagueCentral[i].name);
+      teamsMarket.push(americanLeagueCentral[i].market);
     }
 
     for (var i = 0; i < americanLeagueWest.length; i++) {
       teamsID.push(americanLeagueWest[i].id);
+      teamsAbbr.push(americanLeagueWest[i].abbr);
       teamsName.push(americanLeagueWest[i].name);
+      teamsMarket.push(americanLeagueWest[i].market);
     }
 
-    // console.log(teamsID);
-    // console.log(teamsName);
-
   })
+
+  // let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${dictionary[index].players}/profile.json?api_key=` + sportradarApiKey;
+  // $.getJSON(playerProfile, function(info) {
+
+  // GETTING ALL THE PLAYERS ID's
+  // playersHolder.push(info);
+  // console.log(info);
+  // let ids = playersHolder[0].players;
+  //
+  // for (var i = 0; i < ids.length; i++) {
+  //   playersID.push(ids[i].id);
+  // }
+  // console.log(playersID);
+  // })
 
 
   //  USING THAT ID TO STORE IT INTO THE TEAM PROFILE URL TO GET ITS DATA
@@ -68,20 +94,30 @@ $(document).ready(function() {
     for (var i = 0; i < 30 && index === -1; i++) {
       dictionary.push({
         key: teamsID[i],
-        value: teamsName[i]
+        abbr: teamsAbbr[i],
+        teamName: teamsName[i],
+        teamMarket: teamsMarket[i],
+        players: playersID[i]
       });
 
-      if (valOfSearchBox.toLowerCase() === dictionary[i].value.toLowerCase()) {
+
+      // console.log(dictionary[i].teamMarket);
+
+      if (valOfSearchBox.toLowerCase() === dictionary[i].teamName.toLowerCase() ||
+        valOfSearchBox.toLowerCase() === dictionary[i].teamMarket.toLowerCase() ||
+        valOfSearchBox.toLowerCase() === dictionary[i].abbr.toLowerCase()) {
         index = i;
       } else {
-        console.log('Error 404 - Not Found');
+        // console.log('Error 404 - Not Found');
       }
     }
 
     if (index !== -1) {
       let teamProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/teams/${dictionary[index].key}/profile.json?api_key=` + sportradarApiKey;
+
       $.getJSON(teamProfile, function(info) {
 
+        // console.log(teamProfile);
         teamInfo.push(info);
         let teamName = teamInfo[0].name;
         let teamMarket = teamInfo[0].market;
@@ -90,7 +126,12 @@ $(document).ready(function() {
         let listOfPlayers = teamInfo[0].players;
         let player = listOfPlayers;
 
-        for (var i = 0; i < teamInfo.length; i++) {
+        // $('.teamInfo1').html(teamName);
+        // $('.teamInfo2').html(teamMarket);
+        // $('.teamInfo3').html(leagueName);
+        // $('.teamInfo4').html(divisionName);
+
+        for (var i = 0; i < 1; i++) {
           $('.teamInfo').append(
             `<tr>
                 <td> ${teamName} </td>
@@ -101,9 +142,9 @@ $(document).ready(function() {
           )
         }
 
-        console.log(player[0].position);
+        console.log(teamInfo.length);
 
-        for (var i = 0; i < listOfPlayers.length; i++) {
+        for (var i = 0; i < player.length; i++) {
 
           $('.playersInfo').append(
             `<tr>
@@ -119,6 +160,7 @@ $(document).ready(function() {
         }
 
       })
+
     }
 
   })
