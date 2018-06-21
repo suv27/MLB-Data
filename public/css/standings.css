@@ -2,15 +2,8 @@ body {
   padding: 0;
   margin: 0;
   border: 0;
-  background: #005C97;
   background: -webkit-linear-gradient(-90deg, #4b6cb7, #182848);
-  background-position-x: 0px;
-  background-position-y: 0px;
-  background-size: initial;
   background-attachment: fixed;
-  background-origin: initial;
-  background-clip: initial;
-  background-color: initial;
 }
 
 li a i {
