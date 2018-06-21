@@ -7,7 +7,7 @@ $(document).ready(function() {
   let dictionary = [];
   let teamInfo = [];
   let playersHolder = [];
-  let playersID = [];
+  let ids = [];
   let sportradarApiKey = '656e58ujs4q8a5cbpcabebea';
   let rankings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=" + sportradarApiKey;
 
@@ -65,22 +65,7 @@ $(document).ready(function() {
       teamsName.push(americanLeagueWest[i].name);
       teamsMarket.push(americanLeagueWest[i].market);
     }
-
   })
-
-  // let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${dictionary[index].players}/profile.json?api_key=` + sportradarApiKey;
-  // $.getJSON(playerProfile, function(info) {
-
-  // GETTING ALL THE PLAYERS ID's
-  // playersHolder.push(info);
-  // console.log(info);
-  // let ids = playersHolder[0].players;
-  //
-  // for (var i = 0; i < ids.length; i++) {
-  //   playersID.push(ids[i].id);
-  // }
-  // console.log(playersID);
-  // })
 
 
   //  USING THAT ID TO STORE IT INTO THE TEAM PROFILE URL TO GET ITS DATA
@@ -89,7 +74,6 @@ $(document).ready(function() {
 
     let valOfSearchBox = event.target.value;
     let index = -1;
-    // console.log("Your searching for `" + valOfSearchBox + "`");
 
     for (var i = 0; i < 30 && index === -1; i++) {
       dictionary.push({
@@ -97,11 +81,8 @@ $(document).ready(function() {
         abbr: teamsAbbr[i],
         teamName: teamsName[i],
         teamMarket: teamsMarket[i],
-        players: playersID[i]
+        playersID: ids[i]
       });
-
-
-      // console.log(dictionary[i].teamMarket);
 
       if (valOfSearchBox.toLowerCase() === dictionary[i].teamName.toLowerCase() ||
         valOfSearchBox.toLowerCase() === dictionary[i].teamMarket.toLowerCase() ||
@@ -119,6 +100,7 @@ $(document).ready(function() {
 
         // console.log(teamProfile);
         teamInfo.push(info);
+        let team = teamInfo[0];
         let teamName = teamInfo[0].name;
         let teamMarket = teamInfo[0].market;
         let leagueName = teamInfo[0].league.name;
@@ -142,14 +124,12 @@ $(document).ready(function() {
           )
         }
 
-        console.log(teamInfo.length);
-
         for (var i = 0; i < player.length; i++) {
-
+          ids.push(player[i].id);
           $('.playersInfo').append(
             `<tr>
-                <td> ${player[i].first_name} </td>
-                <td> ${player[i].last_name}</td>
+                <td> ${player[i].full_name} </td>
+                <td> ${team.abbr}</td>
                 <td> ${player[i].position} </td>
                 <td> ${player[i].jersey_number} </td>
                 <td> ${player[i].throw_hand} </td>
@@ -159,10 +139,36 @@ $(document).ready(function() {
           )
         }
 
-      })
+        for(var i = 0; i < dictionary.length; i++) {
+          dictionary[i].playersID = player[i].id;
+        }
 
+        console.log(ids);
+        console.log(dictionary);
+        console.log(player.length);
+        console.log(index);
+        console.log(dictionary[index]);
+        console.log(dictionary[index].playersID);
+        // console.log(playerProfile);
+
+        let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${dictionary[index].playersID}/profile.json?api_key=` + sportradarApiKey;
+        // $.getJSON(playerProfile, function(data) {
+        //
+          // GETTING ALL THE PLAYERS ID's
+          // playersHolder.push(data.player);
+          // console.log(playersHolder.id);
+
+          // for (var i = 0; i < dictionary.length; i++) {
+            // console.log('hola');
+            // console.log(playersHolder);
+            // playersID.push(ids[i].id);
+          // }
+
+        // })
+
+
+      })
     }
 
   })
-
 });
