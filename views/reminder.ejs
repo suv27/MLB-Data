@@ -5,68 +5,64 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Reminders</title>
+  <title>Team's Players</title>
   <%- include('partials/links') %>
-  <link rel="stylesheet" type="text/css" href="/css/reminder.css">
+    <link rel="stylesheet" type="text/css" href="/css/reminder.css">
 </head>
 
 <body>
-
   <%- include('partials/nav') %>
-    <div id="particles-js">
-      <div class="container">
 
-        <div class="header">
-          <h1>Reminders</h1>
-        </div>
+    <div id="particles-js"></div>
+    <div class="container">
 
-        <div class="searchBox">
-          <input class="searchInput" type="search" name="search" placeholder="Enter Team's Name">
-        </div>
-
-        <div>
-          <table class="teamInfo">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Market</th>
-                <th>League</th>
-                <th>Division</th>
-              </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-          </table>
-        </div>
-
-        <div>
-          <table class="playersInfo">
-            <thead>
-              <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>Position</th>
-                <th>Jersey Number</th>
-                <th>Throw Hand</th>
-                <th>Batting Hand</th>
-                <th>Debut</th>
-              </tr>
-            </thead>
-            <tbody>
-
-            </tbody>
-          </table>
-        </div>
-
+      <div class="header">
+        <h1>Team Players</h1>
       </div>
+
+      <div class="searchBox">
+        <input class="searchInput" type="search" name="search" placeholder="Enter Team's Name">
+      </div>
+
+      <div class="team">
+        <table class="teamInfo">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Market</th>
+              <th>League</th>
+              <th>Division</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="player">
+        <table class="playersInfo">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Position</th>
+              <th>Jersey Number</th>
+              <th>Throw Hand</th>
+              <th>Batting Hand</th>
+              <th>Debut</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+
     </div>
 
-
-
-
     <%- include('partials/scripts') %>
-    <script type="text/javascript" src="/js/reminder.js"></script>
+      <script type="text/javascript" src="/js/reminder.js"></script>
 </body>
 
 </html>

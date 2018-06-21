@@ -63,8 +63,7 @@ $(document).ready(function() {
 
     let valOfSearchBox = event.target.value;
     let index = -1;
-    console.log("Your searching for `" + valOfSearchBox + "`");
-
+    // console.log("Your searching for `" + valOfSearchBox + "`");
 
     for (var i = 0; i < 30 && index === -1; i++) {
       dictionary.push({
@@ -72,20 +71,15 @@ $(document).ready(function() {
         value: teamsName[i]
       });
 
-      // console.log(dictionary[i].value);
-
-      if(valOfSearchBox.toLowerCase() === dictionary[i].value.toLowerCase()){
-        // console.log(dictionary[i]);
+      if (valOfSearchBox.toLowerCase() === dictionary[i].value.toLowerCase()) {
         index = i;
-      }
-      else{
-        // console.log('nothing found');
+      } else {
+        alert('Error 404 - Not Found');
       }
     }
 
-    if(index !== -1){
+    if (index !== -1) {
       let teamProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/teams/${dictionary[index].key}/profile.json?api_key=` + sportradarApiKey;
-      // console.log(teamProfile);
       $.getJSON(teamProfile, function(info) {
 
         teamInfo.push(info);
@@ -96,7 +90,7 @@ $(document).ready(function() {
         let listOfPlayers = teamInfo[0].players;
         let player = listOfPlayers;
 
-        for(var i = 0; i < teamInfo.length; i++) {
+        for (var i = 0; i < teamInfo.length; i++) {
           $('.teamInfo').append(
             `<tr>
                 <td> ${teamName} </td>
@@ -104,41 +98,29 @@ $(document).ready(function() {
                 <td> ${leagueName} </td>
                 <td> ${divisionName} </td>
             </tr>`
-           )
+          )
         }
 
-        // console.log(player[0]);
+        console.log(player[0].position);
 
-        for(var i = 0; i < listOfPlayers.length; i++) {
+        for (var i = 0; i < listOfPlayers.length; i++) {
 
           $('.playersInfo').append(
             `<tr>
                 <td> ${player[i].first_name} </td>
                 <td> ${player[i].last_name}</td>
+                <td> ${player[i].position} </td>
                 <td> ${player[i].jersey_number} </td>
-                <td> ${player[i].Position} </td>
                 <td> ${player[i].throw_hand} </td>
                 <td> ${player[i].bat_hand} </td>
                 <td> ${player[i].pro_debut} </td>
             </tr>`
-           )
+          )
         }
-
 
       })
     }
 
-
-
-
-
-
   })
-
-
-
-
-
-
 
 });
