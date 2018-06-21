@@ -74,7 +74,7 @@ $(document).ready(function() {
       if (valOfSearchBox.toLowerCase() === dictionary[i].value.toLowerCase()) {
         index = i;
       } else {
-        alert('Error 404 - Not Found');
+        console.log('Error 404 - Not Found');
       }
     }
 
