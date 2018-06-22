@@ -1,17 +1,20 @@
-// server.js
-// load the things we need
-const express = require('express');
+const express = require(`express`);
 const app = express();
-
-// set the view engine to ejs
-app.set('view engine', 'ejs');
-
-const port = 8000;
+const port = 3000;
 const { Pool, Client } = require('pg');
 const parser = require('body-parser');
 app.use(parser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
+const pool = new Pool({
+    user: 'postgres',
+    host: 'localhost',
+    database: 'postgres',
+    password: '#BeastMode27',
+    port: 5432,
+});
+
 
 app.get('/', (req, res) => {
   res.render(`home`, {
@@ -25,7 +28,7 @@ app.get('/standings', (req, res) => {
   })
 });
 
-//Another comment
+
 app.get('/reminders', (req, res) => {
   res.render('reminder', {
 
