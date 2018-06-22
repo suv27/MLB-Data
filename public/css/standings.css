@@ -44,21 +44,23 @@ li a i {
 }
 
 canvas#particle-js {
-    background-color: white !important;
-    z-index: 0 !important;
-    position: static !important;
-    width: 100% !important;
-    height: 100% !important;
-    left: 0;
-    top: 0;
+  background-color: white !important;
+  z-index: 0 !important;
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+  left: 0;
+  top: 0;
 }
 
-canvas{
+canvas {
   display: block;
   position: fixed;
   z-index: -1;
 }
+
 .container {
+  height: 100%;
   z-index: 99999;
   position: relative;
   background: #FFF;

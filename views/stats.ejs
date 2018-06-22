@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Stats</title>
   <%- include('partials/links') %>
-    <link rel="stylesheet" type="text/css" href="/css/reminder.css">
+    <link rel="stylesheet" type="text/css" href="/css/stats.css">
 </head>
 
 <body>
@@ -21,7 +21,9 @@
       </div>
 
       <div class="searchBox">
-        <input class="searchInput" type="search" name="search" placeholder="Enter Team's Name">
+        <form action="/post" method="post">
+          <input class="searchInput " type="search" name="search" placeholder="Enter Team's Name">
+        </form>
       </div>
 
       <div class="team">

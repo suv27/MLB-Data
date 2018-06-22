@@ -37,9 +37,48 @@ li a i{
   color: #000;
 }
 
-
 .navbarContainer{
   width: 70%;
   padding: 0;
   margin: 0 auto;
+}
+
+canvas#particle-js {
+  background-color: white !important;
+  z-index: 0 !important;
+  position: static !important;
+  width: 100% !important;
+  height: 100% !important;
+  left: 0;
+  top: 0;
+}
+
+canvas {
+  display: block;
+  position: fixed;
+  z-index: -1;
+}
+
+.container {
+  height: 100%;
+  z-index: 99999;
+  position: relative;
+}
+
+.header h3{
+  font-size: 100px;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.data-flex{
+  color: #000;
+  font-size: 26px;
+  font-weight: bolder;
+  text-align: center;
+  display: block;
+}
+
+.infoHR{
+  width: 25%;
 }

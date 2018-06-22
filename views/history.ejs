@@ -5,26 +5,36 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>MLB</title>
+  <title>Search History</title>
   <%- include('partials/links') %>
     <link rel="stylesheet" type="text/css" href="/css/home.css">
 </head>
 
 <body>
+
   <%- include('partials/nav') %>
     <div id="particles-js"></div>
 
     <div class="container">
-      <div class="heading">
-        <h1>Home</h1>
+      <div class="header">
+        <h3>Search History</h3>
+        <hr>
       </div>
+
+      <% for(var i = 0; i < data.length; i++) { %>
+        <div class="data-flex">
+          <p>
+            <%=data[i].history%>
+          </p>
+          <hr class="infoHR">
+        </div>
+        <% } %>
 
     </div>
 
 
-
     <%- include('partials/scripts') %>
-      <script type="text/javascript" src="/js/home.js"></script>
+      <script type="text/javascript" src="/js/reminder.js"></script>
 </body>
 
 </html>
