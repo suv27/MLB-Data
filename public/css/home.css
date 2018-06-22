@@ -82,3 +82,10 @@ canvas {
 .infoHR{
   width: 25%;
 }
+
+img{
+	width: 30%;
+	padding: 2%;
+	margin: 1.66%;
+	float: left;
+}
