@@ -5,6 +5,7 @@ $(document).ready(function() {
   let teamProfile = '';
   let sportradarApiKey = '656e58ujs4q8a5cbpcabebea';
   let keyPatrick = 'mevcburkuv7wpjvpnvc6gaw5';
+  let keyapiStar2 = 'xpqwhygqcbzx39x3mgsq4hc9';
   let rankings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=" + keyPatrick;
 
   // GETTING ALL THE ID'S FROM THE RANKING URL AND STORING IT INTO AN EMPTY ARRAY
@@ -50,9 +51,8 @@ $(document).ready(function() {
 
         for (var i = 0; i < player.length; i++) {
 
-          let playerObjectHitting;
-          let playerObjectFielding;
-
+          // let playerObjectHitting;
+          // let playerObjectFielding;
           // <td> ${playerObjectHitting.statistics.hitting.overall.games.play}</td>
           // <td> ${playerObjectHitting.statistics.hitting.overall.ab}</td>
           // <td> ${playerObjectHitting.statistics.hitting.overall.runs.total}</td>
@@ -82,7 +82,7 @@ $(document).ready(function() {
               </tr>`
           )
 
-          // let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${player[i].id}/profile.json?api_key=` + keyPatrick;
+          // let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${player[i].id}/profile.json?api_key=` + keyapiStar2;
           // $.getJSON(playerProfile, function(data) {
           //
           //   $('.innerPlayerInfo').html('');
