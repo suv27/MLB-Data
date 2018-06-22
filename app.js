@@ -6,19 +6,23 @@ const {
   Client
 } = require('pg');
 const parser = require('body-parser');
-app.use(parser.urlencoded({
-  extended: true
-}));
+app.use(parser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
-const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'postgres',
-  password: '#BeastMode27',
-  port: 5432,
-});
+// const pool = new Pool({
+//   user: 'postgres',
+//   host: 'localhost',
+//   database: 'postgres',
+//   password: '#BeastMode27',
+//   port: 5432,
+// });
+
+const pool = new Pool ({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+})
+
 
 let table = {};
 

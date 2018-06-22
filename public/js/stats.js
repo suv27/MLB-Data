@@ -1,7 +1,8 @@
 $(document).ready(function() {
 
   let sportradarApiKey = '656e58ujs4q8a5cbpcabebea';
-  let standings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=" + sportradarApiKey;
+  let keyPatrick = 'mevcburkuv7wpjvpnvc6gaw5';
+  let standings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=" + keyPatrick;
   let data = [];
 
 
