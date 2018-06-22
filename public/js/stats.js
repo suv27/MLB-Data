@@ -1,176 +1,98 @@
 $(document).ready(function() {
 
+  var teamsObject = [];
+  var teamsProfile = [];
+  let teamProfile = '';
   let sportradarApiKey = '656e58ujs4q8a5cbpcabebea';
   let keyPatrick = 'mevcburkuv7wpjvpnvc6gaw5';
-  let standings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=" + keyPatrick;
-  let data = [];
+  let keyapiStar2 = 'xpqwhygqcbzx39x3mgsq4hc9';
+  let rankings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=" + keyPatrick;
 
+  // GETTING ALL THE ID'S FROM THE RANKING URL AND STORING IT INTO AN EMPTY ARRAY
+  $.getJSON(rankings, function(info) {
+    teamsObject = info;
+  })
 
-  // GETTING AND ISPLAYING THE STANDINGS FOR EACH LEAGUE
-  $.getJSON(standings, function(info) {
-    data.push(info);
-    let nationalLeague = data[0].league.season.leagues[0];
-    let americanLeague = data[0].league.season.leagues[1];
-    let alEastTeams = americanLeague.divisions[0].teams;
-    let alCentralTeams = americanLeague.divisions[1].teams;
-    let alWestTeams = americanLeague.divisions[2].teams;
-    let nlEastTeams = nationalLeague.divisions[0].teams;
-    let nlCentralTeams = nationalLeague.divisions[1].teams;
-    let nlWestTeams = nationalLeague.divisions[2].teams;
+  //  USING THAT ID TO STORE IT INTO THE TEAM PROFILE URL TO GET ITS DATA
 
-    // AMERICAN LEAGUE
-    $('.aLeague').html(americanLeague.name);
+  $('.searchInput').on('change', (event) => {
 
-    function teamALEHeader() {
-      $('.dg-ale-team_short').html(americanLeague.divisions[0].name);
-      $('.dg-ale-w').html('W');
-      $('.dg-ale-l').html('L');
-      $('.dg-ale-w').html('W');
-      $('.dg-ale-pct').html('PCT');
-      $('.dg-ale-gb').html('GB');
-      $('.dg-ale-gb_wildcard').html('WCGB');
-      $('.dg-ale-streak').html('STRK');
+    let valOfSearchBox = event.target.value;
+    let index = -1;
+    let foundTeam = undefined;
+
+    for (var i = 0; i < teamsObject.league.season.leagues.length && (foundTeam == undefined); i++) {
+      var thisLeague = teamsObject.league.season.leagues[i];
+      for (var j = 0; j < thisLeague.divisions.length && (foundTeam == undefined); j++) {
+        var thisDivision = thisLeague.divisions[j];
+        for (var k = 0; k < thisDivision.teams.length && (foundTeam == undefined); k++) {
+          var thisTeam = thisDivision.teams[k];
+
+          if (valOfSearchBox.toLowerCase() === thisTeam.name.toLowerCase() ||
+            valOfSearchBox.toLowerCase() === thisTeam.market.toLowerCase() ||
+            valOfSearchBox.toLowerCase() === thisTeam.abbr.toLowerCase()) {
+            foundTeam = thisTeam;
+          }
+        }
+      }
     }
 
-    function teamALCHeader() {
-      $('.dg-alc-team_short').html(americanLeague.divisions[1].name);
-      $('.dg-alc-w').html('W');
-      $('.dg-alc-l').html('L');
-      $('.dg-alc-w').html('W');
-      $('.dg-alc-pct').html('PCT');
-      $('.dg-alc-gb').html('GB');
-      $('.dg-alc-gb_wildcard').html('WCGB');
-      $('.dg-alc-streak').html('STRK');
+    if (foundTeam != undefined) {
+
+      let teamProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/teams/${thisTeam.id}/profile.json?api_key=` + keyPatrick;
+      $.getJSON(teamProfile, function(info) {
+        teamsProfile = info;
+
+        let player = teamsProfile.players;
+
+        $('.innerTeamInfo').html(
+          `<tr><td> ${info.name} </td><td> ${info.market}</td><td> ${info.league.name} </td><td> ${info.division.name} </td></tr>`
+        )
+
+        for (var i = 0; i < player.length; i++) {
+
+          // let playerObjectHitting;
+          // let playerObjectFielding;
+          // <td> ${playerObjectHitting.statistics.hitting.overall.games.play}</td>
+          // <td> ${playerObjectHitting.statistics.hitting.overall.ab}</td>
+          // <td> ${playerObjectHitting.statistics.hitting.overall.runs.total}</td>
+          // <td> ${playerObjectHitting.splits.hitting.overall[0].total.h}</td>
+
+          $('.innerPlayerInfo').append(
+            `<tr>
+                <td> ${teamsProfile.players[i].full_name} </td>
+                <td> ${info.abbr}</td>
+                <td> ${teamsProfile.players[i].position} </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> ${teamsProfile.players[i].jersey_number} </td>
+                <td> ${teamsProfile.players[i].throw_hand} </td>
+                <td> ${teamsProfile.players[i].bat_hand} </td>
+                <td> ${teamsProfile.players[i].pro_debut} </td>
+              </tr>`
+          )
+
+          // let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${player[i].id}/profile.json?api_key=` + keyapiStar2;
+          // $.getJSON(playerProfile, function(data) {
+          //
+          //   $('.innerPlayerInfo').html('');
+          //
+          //   playerObjectHitting = data.player.seasons[0].totals.statistics;
+          //   playerObjectFielding = data.player.seasons[0].totals.statistics.fielding;
+          // })
+        }
+      })
+
     }
-
-    function teamALWHeader() {
-      $('.dg-alw-team_short').html(americanLeague.divisions[2].name);
-      $('.dg-alw-w').html('W');
-      $('.dg-alw-l').html('L');
-      $('.dg-alw-w').html('W');
-      $('.dg-alw-pct').html('PCT');
-      $('.dg-alw-gb').html('GB');
-      $('.dg-alw-gb_wildcard').html('WCGB');
-      $('.dg-alw-streak').html('STRK');
-    }
-
-    // APPENDING THROUGH ALL THE EAST TEAMS AND THEIR INFORMATION
-    teamALEHeader();
-    for(var i = 0; i < alEastTeams.length; i++){
-      $(".bodyForALE").append(
-        `<tr><td>` + alEastTeams[i].name + `</td>
-             <td>` + alEastTeams[i].win  + `</td>
-             <td>` + alEastTeams[i].loss + `</td>
-             <td>` + alEastTeams[i].win_p + `</td>
-             <td>` + alEastTeams[i].games_back + `</td>
-             <td>` + alEastTeams[i].wild_card_back + `</td>
-             <td>` + alEastTeams[i].streak + `</tr>`
-      );
-    }
-
-    // APPENDING THROUGH ALL THE CENTRAL TEAMS AND THEIR INFORMATION
-    teamALCHeader();
-    for(var i = 0; i < alCentralTeams.length; i++){
-      $(".bodyForALC").append(
-        `<tr><td>` + alCentralTeams[i].name + `</td>
-             <td>` + alCentralTeams[i].win  + `</td>
-             <td>` + alCentralTeams[i].loss + `</td>
-             <td>` + alCentralTeams[i].win_p + `</td>
-             <td>` + alCentralTeams[i].games_back + `</td>
-             <td>` + alCentralTeams[i].wild_card_back + `</td>
-             <td>` + alCentralTeams[i].streak + `</tr>`
-      );
-    }
-
-    // APPENDING THROUGH ALL THE WEST TEAMS AND THEIR INFORMATION
-    teamALWHeader();
-    for(var i = 0; i < alWestTeams.length; i++){
-      $(".bodyForALW").append(
-        `<tr><td>` + alWestTeams[i].name + `</td>
-             <td>` + alWestTeams[i].win  + `</td>
-             <td>` + alWestTeams[i].loss + `</td>
-             <td>` + alWestTeams[i].win_p + `</td>
-             <td>` + alWestTeams[i].games_back + `</td>
-             <td>` + alWestTeams[i].wild_card_back + `</td>
-             <td>` + alWestTeams[i].streak + `</tr>`
-      );
-    }
-
-    // NATIONAL LEAGUE
-    $('.anLeague').html(nationalLeague.name);
-
-    function teamNLEHeader() {
-      $('.dg-nle-team_short').html(nationalLeague.divisions[0].name);
-      $('.dg-nle-w').html('W');
-      $('.dg-nle-l').html('L');
-      $('.dg-nle-w').html('W');
-      $('.dg-nle-pct').html('PCT');
-      $('.dg-nle-gb').html('GB');
-      $('.dg-nle-gb_wildcard').html('WCGB');
-      $('.dg-nle-streak').html('STRK');
-    }
-
-    function teamNLCHeader() {
-      $('.dg-nlc-team_short').html(nationalLeague.divisions[1].name);
-      $('.dg-nlc-w').html('W');
-      $('.dg-nlc-l').html('L');
-      $('.dg-nlc-w').html('W');
-      $('.dg-nlc-pct').html('PCT');
-      $('.dg-nlc-gb').html('GB');
-      $('.dg-nlc-gb_wildcard').html('WCGB');
-      $('.dg-nlc-streak').html('STRK');
-    }
-
-    function teamNLWHeader() {
-      $('.dg-nlw-team_short').html(nationalLeague.divisions[2].name);
-      $('.dg-nlw-w').html('W');
-      $('.dg-nlw-l').html('L');
-      $('.dg-nlw-w').html('W');
-      $('.dg-nlw-pct').html('PCT');
-      $('.dg-nlw-gb').html('GB');
-      $('.dg-nlw-gb_wildcard').html('WCGB');
-      $('.dg-nlw-streak').html('STRK');
-    }
-
-    // APPENDING THROUGH ALL THE EAST TEAMS AND THEIR INFORMATION
-    teamNLEHeader();
-    for(var i = 0; i < nlEastTeams.length; i++){
-      $(".bodyForNLE").append(
-        `<tr><td>` + nlEastTeams[i].name + `</td>
-             <td>` + nlEastTeams[i].win  + `</td>
-             <td>` + nlEastTeams[i].loss + `</td>
-             <td>` + nlEastTeams[i].win_p + `</td>
-             <td>` + nlEastTeams[i].games_back + `</td>
-             <td>` + nlEastTeams[i].wild_card_back + `</td>
-             <td>` + nlEastTeams[i].streak + `</tr>`
-      );
-    }
-
-    teamNLCHeader();
-    for(var i = 0; i < nlCentralTeams.length; i++){
-      $(".bodyForNLC").append(
-        `<tr><td>` + nlCentralTeams[i].name + `</td>
-             <td>` + nlCentralTeams[i].win  + `</td>
-             <td>` + nlCentralTeams[i].loss + `</td>
-             <td>` + nlCentralTeams[i].win_p + `</td>
-             <td>` + nlCentralTeams[i].games_back + `</td>
-             <td>` + nlCentralTeams[i].wild_card_back + `</td>
-             <td>` + nlCentralTeams[i].streak + `</tr>`
-      );
-    }
-
-    teamNLWHeader();
-    for(var i = 0; i < nlWestTeams.length; i++){
-      $(".bodyForNLW").append(
-        `<tr><td>` + nlWestTeams[i].name + `</td>
-             <td>` + nlWestTeams[i].win  + `</td>
-             <td>` + nlWestTeams[i].loss + `</td>
-             <td>` + nlWestTeams[i].win_p + `</td>
-             <td>` + nlWestTeams[i].games_back + `</td>
-             <td>` + nlWestTeams[i].wild_card_back + `</td>
-             <td>` + nlWestTeams[i].streak + `</tr>`
-      );
-    }
-  });
-
+  })
 });
