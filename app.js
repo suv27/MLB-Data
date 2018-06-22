@@ -10,18 +10,18 @@ app.use(parser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
-// const pool = new Pool({
-//   user: 'postgres',
-//   host: 'localhost',
-//   database: 'postgres',
-//   password: '#BeastMode27',
-//   port: 5432,
-// });
+const pool = new Pool({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'postgres',
+  password: '#BeastMode27',
+  port: 5432,
+});
 
-const pool = new Pool ({
-  connectionString: process.env.DATABASE_URL,
-  ssl: true
-})
+// const pool = new Pool ({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: true
+// })
 
 
 let table = {};
@@ -78,6 +78,6 @@ app.get('*', (req, res) => {
   })
 })
 
-app.listen(port || process.env.PORT, (req, res) => {
+app.listen(process.env.PORT || port, (req, res) => {
   console.log(`Listening to port ${port}.....`);
 });
