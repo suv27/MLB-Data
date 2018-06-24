@@ -50,7 +50,6 @@ app.get('/history', (req, res) => {
   pool.query('SELECT * FROM history', (req2, res2) => {
 
     tableObj = res2.rows;
-    console.log(tableObj);
 
     res.render('history', {
       data: tableObj
@@ -69,8 +68,23 @@ app.post('/post', (req, res) => {
     console.log('BOOOOOOM, inserted........');
   });
 
-  pool.end;
 })
+
+// DELETING THE REQUEST THAT I GOT FORM THE AJAX FROM THE DATABASE
+app.delete('/delete/:id', (req, res) => {
+
+  var deleteQuery = {
+    text: 'DELETE FROM history WHERE id = $1',
+    values: [req.params.id]
+  }
+
+  pool.query(deleteQuery, (req, res) => {
+
+  });
+
+  res.redirect('/history')
+
+});
 
 app.get('*', (req, res) => {
   res.render('errorPath', {

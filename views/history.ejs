@@ -18,23 +18,24 @@
     <div class="container">
       <div class="header">
         <h3>Search History</h3>
-        <hr>
+        <hr class="infoHR">
       </div>
 
-      <% for(var i = 0; i < data.length; i++) { %>
-        <div class="data-flex">
-          <p>
-            <%=data[i].history%>
-          </p>
-          <hr class="infoHR">
-        </div>
-        <% } %>
+      <div class="data-flex">
+        <% for(var i = 0; i < data.length; i++) { %>
+          <div class="hist">
+            <p passport=<%=data[i].id %>>
+              <%=data[i].history%>
+                <i class="fas fa-times-circle"></i>
+            </p>
+          </div>
+          <% } %>
+      </div>
 
     </div>
 
-
     <%- include('partials/scripts') %>
-      <!-- <script type="text/javascript" src="/js/reminder.js"></script> -->
+      <script type="text/javascript" src="/js/history.js"></script>
 </body>
 
 </html>
