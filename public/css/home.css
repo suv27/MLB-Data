@@ -76,10 +76,10 @@ canvas {
 }
 
 img{
-	width: 30%;
+	width: 340px;
+  height: 340px;
 	padding: 2%;
-	margin: 1.66%;
-	float: left;
+	margin: auto;
 }
 
 .hist{
