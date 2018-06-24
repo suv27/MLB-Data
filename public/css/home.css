@@ -93,6 +93,6 @@ img{
   margin: 0 auto;
 }
 
-.fas:hover{
+.fas:hover, p:hover{
   color: red;
 }
