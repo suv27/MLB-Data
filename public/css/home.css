@@ -75,11 +75,14 @@ canvas {
   width: 25%;
 }
 
+.teamsLogos{
+  margin: 0 auto;
+}
+
 img{
-	width: 340px;
-  height: 340px;
+	width: 32%;
+  height: 32%;
 	padding: 2%;
-	margin: auto;
 }
 
 .hist{
