@@ -12,10 +12,7 @@ li a i{
 }
 
 .navbar {
-  height: 25px;
-  margin: 0 auto;
-  border: 0;
-  border: 0;
+  height: 50px;
   background-color: #002e6d;
 }
 
@@ -23,6 +20,22 @@ li a i{
   width: 45px;
   height: 25px;
   margin: 12px 0;
+ }
+
+ .navbar-brand {
+   display: inline-flex;
+   top: 2%;
+   font-size: 24px;
+   position: absolute;
+ }
+
+ .navbar-nav {
+   display: -webkit-box;
+   display: -webkit-inline-box;
+   list-style: none;
+   right: 15%;
+   top: 25%;
+   position: absolute;
  }
 
 .navbar-header{
