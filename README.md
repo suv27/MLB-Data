@@ -1,11 +1,13 @@
 # MLBStats
-Simple overview of use/purpose.
 
-Description
-An in-depth paragraph about your project and overview of use.
 
-Getting Started
-Dependencies
+#Description
+NodeJS App that provides the user with the standings of all 30 teams and all division in the Major League.  
+Also, you are able to search for a specific team and see the list of players on that team and some of their stats.  
+A search history is implemented, user will be able to see all the teams they have search for.  
+
+#Getting Started
+###Dependencies
 Describe any prerequisites, libraries, OS version, etc., needed before installing program.
 ex. Windows 10
 Installing
