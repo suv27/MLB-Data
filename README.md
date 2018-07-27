@@ -30,7 +30,7 @@ https://www.npmjs.com/get-npm
 * *ejs*
 * *pg*
 
-**Important!!!**
+**Important!!!**  
 Install Google Chrome Extension 'Allow-Control-Allow-Origin' for CORS support.
 https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en&authuser=1
 
