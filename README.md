@@ -44,10 +44,10 @@ Run 'npm install' [Dependencies] '--save'.
 
 ### Authors
 ---
-Starlyn Urena Ventura
+Starlyn Urena Ventura  
 @physsi07
 
 ### Acknowledgments
-@icancode007
-@SharrarKhan
+@icancode007  
+@SharrarKhan  
 @Patrickabreu
