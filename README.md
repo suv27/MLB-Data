@@ -1,7 +1,8 @@
 # MLBStats
-
+---
 
 #Description
+---
 NodeJS App that provides the user with the standings of all 30 teams and all division in the Major League.  
 Also, you are able to search for a specific team and see the list of players on that team and some of their stats.  
 A search history is implemented, user will be able to see all the teams they have search for.  
