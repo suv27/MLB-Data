@@ -1,6 +1,6 @@
 # MLBStats
 ---
-All you Major League Baseball teams and their players. :)
+All your Major League Baseball teams and their players.
 
 ## Description
 ---
