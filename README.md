@@ -49,5 +49,4 @@ Starlyn Urena Ventura
 
 ### Acknowledgments
 @icancode007  
-@SharrarKhan  
-@Patrickabreu
+@SilentMrDave
