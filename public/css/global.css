@@ -16,3 +16,14 @@ canvas { display: block; position: fixed; z-index: -1; }
 
 /* CONTAINER */
 .container { height: 100%; position: relative; }
+
+/* LINKS FOR NAVIGATION */
+.navbar-default .navbar-brand, .navbar-default .navbar-nav > .links > a {
+  color: #FFF;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-nav > .links > a:hover {
+  color: #FFF;
+  font-weight: 800;
+  box-shadow: 0 0 10px white;
+}
