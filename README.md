@@ -2,7 +2,7 @@
 ---
 All your Major League Baseball teams and their players.
 
-## Description
+### Description
 ---
 NodeJS App that provides the user with the standings of all 30 teams and all division in the Major League.  
 Also, you are able to search for a specific team and see the list of players on that team and some of their stats.  
@@ -11,7 +11,7 @@ A search history is implemented, user will be able to see all the teams they hav
 ## Getting Started
 ---
 
-## Downloading Project
+### Downloading Project
 ---
 * *Click Clone or download.*
 * *Copy the URL provided.*
@@ -20,15 +20,15 @@ A search history is implemented, user will be able to see all the teams they hav
 * *Type git clone [URL]*
 * *Press Enter. Your local clone will be created.*
 
-## Before Installing any Dependencies
+### Before Installing any Dependencies
 ---
 You should have NodeJS and NPM install already.  
 If you don't have it, Go here:  
 https://www.npmjs.com/get-npm
 
-## Dependencies to Install
+### Dependencies to Install
 ---
-### Installing
+#### Installing
 Run 'npm install' [Dependencies] '--save'.
 
 * *express*
@@ -40,16 +40,16 @@ Run 'npm install' [Dependencies] '--save'.
 
 * *nodemon*
 
-## How to run the project
+### How to run the project
 ---
 * *npm start*
 
-## Authors
+### Authors
 ---
 Starlyn Urena Ventura
 @physsi07
 
-## Acknowledgments
+### Acknowledgments
 @icancode007
 @SharrarKhan
 @Patrickabreu
