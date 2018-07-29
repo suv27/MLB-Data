@@ -1,32 +1,42 @@
 
 .searchBox {
-  margin: 0 auto;
+  text-align: center;
 }
 
 .searchBox input {
-  width: 300px;
-  height: 50px;
+  width: 200px;
+  height: 40px;
   line-height: 50px;
   font-size: 18px;
-  padding: 5px;
-  margin: 1% auto;
+  text-align: center;
+  margin-bottom: 25px;
 }
 
-.player {
-  margin: 5% auto;
-}
-
-.teamInfo th {
+.team-info .table-header {
   width: 0.25%;
 }
 
-.playersInfo th {
+.team-roster {
+  margin: 25px auto;
+}
+
+@media only screen and (max-width: 1065px) {
+  .searchBox{
+    background-color: red;
+  }
+  .team-roster th{
+    font-size: 12px;
+  }
+}
+
+.team-roster th {
   width: 0.19%;
 }
 
-.playersInfo th, .playersInfo td, .teamInfo th, .teamInfo td {
-  font-weight: 800;
-  padding: 10px;
+.team-roster th, .team-roster td, .team-info .table-header, .team-info td {
+  padding: 5px;
+  font-weight: bold;
+  text-align: center;
   border: 1px solid white;
 }
 

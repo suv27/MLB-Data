@@ -10,70 +10,63 @@
 </head>
 <body>
   <%- include('partials/nav') %>
-    <div id="particles-js"></div>
+  <div id="particles-js"></div>
 
-    <div class="container">
-      <div class="heading">
-        <h1 class="header">Stats</h1>
-      </div>
+  <div class="container">
 
-      <div class="searchBox">
-        <form action="/post" method="post">
-          <input class="searchInput " type="search" name="search" placeholder="Enter Team's Name">
-        </form>
-      </div>
+    <!-- SEARCH BOX -->
+    <form class="searchBox" action="/post" method="post">
+      <input class="searchInput " type="search" name="search" placeholder="Enter Team's Name">
+    </form>
 
-      <div class="team">
-        <table class="teamInfo">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Market</th>
-              <th>League</th>
-              <th>Division</th>
-            </tr>
-          </thead>
-          <tbody class="innerTeamInfo">
+      <!-- TEAM INFO -->
+      <table class="team-info">
+        <thead>
+          <tr>
+            <th class="table-header">Name</th>
+            <th class="table-header">Market</th>
+            <th class="table-header">League</th>
+            <th class="table-header">Division</th>
+          </tr>
+        </thead>
+        <tbody class="innerTeamInfo">
+        </tbody>
+      </table>
 
-          </tbody>
-        </table>
-      </div>
 
-      <div class="player">
-        <table class="playersInfo">
-          <thead>
-            <tr>
-              <th>Player</th>
-              <th>Team</th>
-              <th>Pos</th>
-              <th>G</th>
-              <th>AB</th>
-              <th>R</th>
-              <th>H</th>
-              <th>2B</th>
-              <th>3B</th>
-              <th>HR</th>
-              <th>RBI</th>
-              <th>BB</th>
-              <th>SO</th>
-              <th>SB</th>
-              <th>AVG</th>
-              <th>Jersey #</th>
-              <th>Throw Hand</th>
-              <th>Batting Hand</th>
-              <th>Debut</th>
-            </tr>
-          </thead>
-          <tbody class="innerPlayerInfo">
+      <table class="team-roster">
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Team</th>
+            <th>Pos</th>
+            <th>G</th>
+            <th>AB</th>
+            <th>R</th>
+            <th>H</th>
+            <th>2B</th>
+            <th>3B</th>
+            <th>HR</th>
+            <th>RBI</th>
+            <th>BB</th>
+            <th>SO</th>
+            <th>SB</th>
+            <th>AVG</th>
+            <th>Jersey #</th>
+            <th>Throw Hand</th>
+            <th>Batting Hand</th>
+            <th>Debut</th>
+          </tr>
+        </thead>
+        <tbody class="innerPlayerInfo">
 
-          </tbody>
-        </table>
-      </div>
+        </tbody>
+      </table>
 
     </div>
 
-    <%- include('partials/scripts') %>
-      <script type="text/javascript" src="/js/stats.js"></script>
+  <%- include('partials/scripts') %>
+  <script type="text/javascript" src="/js/stats.js"></script>
 </body>
 
 </html>
