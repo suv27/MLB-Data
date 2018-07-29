@@ -9,9 +9,9 @@ $(document).ready(function() {
   let rankings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=" + keyPatrick;
 
   // GETTING ALL THE ID'S FROM THE RANKING URL AND STORING IT INTO AN EMPTY ARRAY
-  $.getJSON(rankings, function(info) {
+  $.getJSON(rankings, (info) => {
     teamsObject = info;
-  })
+  });
 
   //  USING THAT ID TO STORE IT INTO THE TEAM PROFILE URL TO GET ITS DATA
 
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
         $('.innerTeamInfo').html(
           `<tr><td> ${info.name} </td><td> ${info.market}</td><td> ${info.league.name} </td><td> ${info.division.name} </td></tr>`
-        )
+        );
 
         for (var i = 0; i < player.length; i++) {
 
@@ -60,25 +60,25 @@ $(document).ready(function() {
 
           $('.innerPlayerInfo').append(
             `<tr>
-                <td> ${teamsProfile.players[i].full_name} </td>
-                <td> ${info.abbr}</td>
-                <td> ${teamsProfile.players[i].position} </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> </td>
-                <td> ${teamsProfile.players[i].jersey_number} </td>
-                <td> ${teamsProfile.players[i].throw_hand} </td>
-                <td> ${teamsProfile.players[i].bat_hand} </td>
-                <td> ${teamsProfile.players[i].pro_debut} </td>
+                <td class="table-header-mob"> ${teamsProfile.players[i].full_name} </td>
+                <td class="table-header-mob"> ${info.abbr}</td>
+                <td class="table-header-mob"> ${teamsProfile.players[i].position} </td>
+                <td class="table-header-ipad"> </td>
+                <td class="table-header"> </td>
+                <td class="table-header-ipadmini"> </td>
+                <td class="table-header"> </td>
+                <td class="table-header-ipadmini"> </td>
+                <td class="table-header-ipadmini"> </td>
+                <td class="table-header"> </td>
+                <td class="table-header"> </td>
+                <td class="table-header-ipadmini"> </td>
+                <td class="table-header-ipadmini"> </td>
+                <td class="table-header-ipadmini"> </td>
+                <td class="table-header-mob"> </td>
+                <td class="table-header-web"> ${teamsProfile.players[i].jersey_number} </td>
+                <td class="table-header-web"> ${teamsProfile.players[i].throw_hand} </td>
+                <td class="table-header-web"> ${teamsProfile.players[i].bat_hand} </td>
+                <td class="table-header-web"> ${teamsProfile.players[i].pro_debut} </td>
               </tr>`
           )
 
