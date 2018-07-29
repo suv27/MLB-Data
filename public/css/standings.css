@@ -1,21 +1,47 @@
 /* HEADER */
-.header { color: #000; }
+.header {
+  color: #000;
+}
+
+/* LEAGUES */
+.leagues {
+  display: inline;
+  top: 100px;
+  position: absolute;
+}
 
 /* AMERICAN LEAGUE TABLE */
-.americanLeague{ top: 20%; position: absolute; }
+/* .americanLeague{ top: 20%; position: absolute; } */
 
 /* NATIONAL LEAGUE TABLE */
-.nationalLeague{ top: 108%; position: absolute; }
+.nationalLeague {
+  top: 850px;
+  position: absolute;
+}
 
 /* TABLE HEADERS AND DATA */
-th, td { width: 0.07%; font-weight: 800; padding: 10px; border: 1px solid white; background-color: #FFF; }
+th, td {
+  width: 0.07%;
+  font-weight: 800;
+  padding: 10px;
+  border: 1px solid white;
+  background-color: #FFF;
+}
 th { background-color: #f1f1f1; }
 
 /* HEADER FOR EACH LEAGUE */
-.alHeader, .nlHeader { padding: 2%; display: inline-flex; }
+.alHeader, .nlHeader {
+  padding: 2%;
+  display: inline-flex;
+}
 
 /* LOGO FOR EACH LEAGUE */
-.alLogo, .nlLogo { width: 50px; height: 50px; margin-right: 15px; z-index: 1; }
+.alLogo, .nlLogo {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  z-index: 1;
+}
 
 /* RECTANGLES */
 .rectA, .rectN {
@@ -31,12 +57,14 @@ th { background-color: #f1f1f1; }
   background-color: #d19999;
   position: absolute;
 }
-.rectN { background-color: #737cae; }
+.rectN {
+  background-color: #737cae;
+}
 
 /* LOGO HEADERS */
 .aLeague, .nLeague{
-  left: 6%;
-  top: -15%;
+  left: 10%;
+  top: -5%;
   margin: 1%;
   font-family: inherit;
   position: relative;

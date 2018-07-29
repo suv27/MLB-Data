@@ -1,26 +1,9 @@
 <!-- views/nav.ejs -->
-<nav class="navbar navbar-default">
-
-  <div class="navbarContainer">
-    <div class="navbar-header">
-
-      <div class="navbar-logo">
-        <a href="/"><img class="mlb-logo" src="/pictures/mlb-logo.png" alt="no picture"></a>
-      </div>
-
-      <div>
-      <a href="/" class="navbar-brand">MLB</a>
-      </div>
-    </div>
-
-    <!-- THINGS YOU WANT TO COLLAPSE WHEN THE WEBSITE HITS MOBILE SIZE -->
-    <div>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="links"><a href="/">Home<i class="fas fa-home"></i></i></a></li>
-        <li class="links"><a href="/standings">Standings<i class="fas fa-sort-numeric-down"></i></a> </li>
-        <li class="links"><a href="/stats">Search<i class="fas fa-search-plus"></i></a></li>
-        <li class="links"><a href="/history">History<i class="fas fa-history"></i></a></li>
-      </ul>
-    </div>
+<nav id="nav">
+  <div class="navbar-web">
+    <a class="navbar-links" href="/"><i class="fas fa-home"></i>Home</a>
+    <a class="navbar-links" href="/standings"><i class="fas fa-sort-numeric-down"></i>Standings</a>
+    <a class="navbar-links" href="/stats"><i class="fas fa-search-plus"></i>Search</a>
+    <a class="navbar-links" href="/history"><i class="fas fa-history"></i>History</a>
   </div>
 </nav>
