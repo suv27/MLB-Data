@@ -53,23 +53,26 @@ $(document).ready(() => {
 
           // let playerObjectHitting;
           // let playerObjectFielding;
+
+          $('.innerPlayerInfo').append(
+            `<tr>
+                <td class="table-header-mob"> ${teamsProfile.players[i].full_name} </td>
+                <td class="table-header-mob"> ${info.abbr}</td>
+                <td class="table-header-mob"> ${teamsProfile.players[i].position} </td>
+                <td class="table-header-web"> ${teamsProfile.players[i].jersey_number} </td>
+              </tr>`
+          );
+
+          //not working
           // <td> ${playerObjectHitting.statistics.hitting.overall.games.play}</td>
           // <td> ${playerObjectHitting.statistics.hitting.overall.ab}</td>
           // <td> ${playerObjectHitting.statistics.hitting.overall.runs.total}</td>
           // <td> ${playerObjectHitting.splits.hitting.overall[0].total.h}</td>
 
-          $('.innerPlayerInfo').append(
-            `<tr>
-                <td"> ${teamsProfile.players[i].full_name} </td>
-                <td"> ${info.abbr}</td>
-                <td"> ${teamsProfile.players[i].position} </td>
-                <td"> ${teamsProfile.players[i].jersey_number} </td>
-              </tr>`
-          );
-
-          // <td class="table-header-web"> ${teamsProfile.players[i].throw_hand} </td> trowing hand
-          // <td class="table-header-web"> ${teamsProfile.players[i].bat_hand} </td> batting hand
-          // <td class="table-header-web"> ${teamsProfile.players[i].pro_debut} </td> date of debut
+          //working
+          // <td class="table-header-web"> ${teamsProfile.players[i].throw_hand} </td>
+          // <td class="table-header-web"> ${teamsProfile.players[i].bat_hand} </td>
+          // <td class="table-header-web"> ${teamsProfile.players[i].pro_debut} </td>
 
           // let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${player[i].id}/profile.json?api_key=` + keyapiStar2;
           // $.getJSON(playerProfile, function(data) {
