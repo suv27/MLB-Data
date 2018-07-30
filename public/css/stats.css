@@ -12,20 +12,13 @@
   margin-bottom: 25px;
 }
 
-.team-info .table-header {
+.team-info .table-header, .team-roster .table-header {
   width: 0.25%;
+  background-color: #dcdcdc;
 }
 
 .team-roster {
   margin: 25px auto;
-}
-
-.team-roster th {
-  width: 0.19%;
-}
-
-th {
-  background-color: #dcdcdc;
 }
 
 td {
@@ -39,6 +32,7 @@ td {
   border: 1px solid white;
 }
 
+/*
 @media only screen and (max-width: 1065px) {
   .searchBox{
     background-color: red;
@@ -104,4 +98,4 @@ td {
   .team-roster th{
     width: 0.25%;
   }
-}
+} */

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(() => {
 
   var teamsObject = [];
   var teamsProfile = [];
@@ -6,7 +6,7 @@ $(document).ready(function() {
   let sportradarApiKey = '656e58ujs4q8a5cbpcabebea';
   let keyPatrick = 'mevcburkuv7wpjvpnvc6gaw5';
   let keyapiStar2 = 'xpqwhygqcbzx39x3mgsq4hc9';
-  let rankings = "http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=" + keyPatrick;
+  let rankings = 'http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=' + keyPatrick;
 
   // GETTING ALL THE ID'S FROM THE RANKING URL AND STORING IT INTO AN EMPTY ARRAY
   $.getJSON(rankings, (info) => {
@@ -40,7 +40,7 @@ $(document).ready(function() {
     if (foundTeam != undefined) {
 
       let teamProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/teams/${thisTeam.id}/profile.json?api_key=` + keyPatrick;
-      $.getJSON(teamProfile, function(info) {
+      $.getJSON(teamProfile, (info) => {
         teamsProfile = info;
 
         let player = teamsProfile.players;
@@ -60,27 +60,16 @@ $(document).ready(function() {
 
           $('.innerPlayerInfo').append(
             `<tr>
-                <td class="table-header-mob"> ${teamsProfile.players[i].full_name} </td>
-                <td class="table-header-mob"> ${info.abbr}</td>
-                <td class="table-header-mob"> ${teamsProfile.players[i].position} </td>
-                <td class="table-header-ipad"> </td>
-                <td class="table-header"> </td>
-                <td class="table-header-ipadmini"> </td>
-                <td class="table-header"> </td>
-                <td class="table-header-ipadmini"> </td>
-                <td class="table-header-ipadmini"> </td>
-                <td class="table-header"> </td>
-                <td class="table-header"> </td>
-                <td class="table-header-ipadmini"> </td>
-                <td class="table-header-ipadmini"> </td>
-                <td class="table-header-ipadmini"> </td>
-                <td class="table-header-mob"> </td>
-                <td class="table-header-web"> ${teamsProfile.players[i].jersey_number} </td>
-                <td class="table-header-web"> ${teamsProfile.players[i].throw_hand} </td>
-                <td class="table-header-web"> ${teamsProfile.players[i].bat_hand} </td>
-                <td class="table-header-web"> ${teamsProfile.players[i].pro_debut} </td>
+                <td"> ${teamsProfile.players[i].full_name} </td>
+                <td"> ${info.abbr}</td>
+                <td"> ${teamsProfile.players[i].position} </td>
+                <td"> ${teamsProfile.players[i].jersey_number} </td>
               </tr>`
-          )
+          );
+
+          // <td class="table-header-web"> ${teamsProfile.players[i].throw_hand} </td> trowing hand
+          // <td class="table-header-web"> ${teamsProfile.players[i].bat_hand} </td> batting hand
+          // <td class="table-header-web"> ${teamsProfile.players[i].pro_debut} </td> date of debut
 
           // let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${player[i].id}/profile.json?api_key=` + keyapiStar2;
           // $.getJSON(playerProfile, function(data) {
@@ -91,8 +80,7 @@ $(document).ready(function() {
           //   playerObjectFielding = data.player.seasons[0].totals.statistics.fielding;
           // })
         }
-      })
-
-    }
-  })
+      });
+    };
+  });
 });

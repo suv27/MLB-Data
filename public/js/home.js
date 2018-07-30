@@ -1,6 +1,5 @@
-$(document).ready(function() {
+$(document).ready(() => {
 
-  // alert("HOME CONNECTED..!");
   // CODE GOES HERE
 
 
