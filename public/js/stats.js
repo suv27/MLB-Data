@@ -3,10 +3,7 @@ $(document).ready(() => {
   var teamsObject = [];
   var teamsProfile = [];
   let teamProfile = '';
-  let sportradarApiKey = '656e58ujs4q8a5cbpcabebea';
-  let keyPatrick = 'mevcburkuv7wpjvpnvc6gaw5';
-  let keyapiStar2 = 'xpqwhygqcbzx39x3mgsq4hc9';
-  let rankings = 'http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=' + keyPatrick;
+  let rankings = 'http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=' + apikey;
 
   // GETTING ALL THE ID'S FROM THE RANKING URL AND STORING IT INTO AN EMPTY ARRAY
   $.getJSON(rankings, (info) => {
@@ -39,7 +36,7 @@ $(document).ready(() => {
 
     if (foundTeam != undefined) {
 
-      let teamProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/teams/${thisTeam.id}/profile.json?api_key=` + keyPatrick;
+      let teamProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/teams/${thisTeam.id}/profile.json?api_key=` + apikey;
       $.getJSON(teamProfile, (info) => {
         teamsProfile = info;
 
@@ -70,9 +67,9 @@ $(document).ready(() => {
           // <td> ${playerObjectHitting.splits.hitting.overall[0].total.h}</td>
 
           //working
-          // <td class="table-header-web"> ${teamsProfile.players[i].throw_hand} </td>
-          // <td class="table-header-web"> ${teamsProfile.players[i].bat_hand} </td>
-          // <td class="table-header-web"> ${teamsProfile.players[i].pro_debut} </td>
+          // <td"> ${teamsProfile.players[i].throw_hand} </td>
+          // <td"> ${teamsProfile.players[i].bat_hand} </td>
+          // <td"> ${teamsProfile.players[i].pro_debut} </td>
 
           // let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${player[i].id}/profile.json?api_key=` + keyapiStar2;
           // $.getJSON(playerProfile, function(data) {
