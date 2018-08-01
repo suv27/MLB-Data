@@ -4,6 +4,8 @@ $(document).ready(() => {
   var teamsProfile = [];
   var teamProfile = '';
 
+  $('.player-stats').hide();
+
   // GETTING ALL THE ID'S FROM THE RANKING URL AND STORING IT INTO AN EMPTY ARRAY
   $.getJSON(apiKeyForRankings, (info) => {
     teamsObject = info;
@@ -57,10 +59,10 @@ $(document).ready(() => {
 
           $('.innerPlayerInfo').append(
             `<tr>
-                <td> ${teamsProfile.players[i].full_name} </td>
+                <td><a class="player-clicked" href="#">${teamsProfile.players[i].full_name}</a></td>
                 <td> ${info.abbr}</td>
-                <td> ${teamsProfile.players[i].position} </td>
-                <td> ${teamsProfile.players[i].jersey_number} </td>
+                <td> ${teamsProfile.players[i].position}</td>
+                <td> ${teamsProfile.players[i].jersey_number}</td>
               </tr>`
           );
 
@@ -90,4 +92,8 @@ $(document).ready(() => {
       });
     };
   });
+
+  // LINK TO GET PLAYER PICTURE, PASS PLAYER ID
+  //http://mlb.mlb.com/mlb/images/players/head_shot/{player_id}.jpg
+
 });
