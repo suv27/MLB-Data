@@ -2,11 +2,10 @@ $(document).ready(() => {
 
   var teamsObject = [];
   var teamsProfile = [];
-  let teamProfile = '';
-  let rankings = 'http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=' + apikey;
+  var teamProfile = '';
 
   // GETTING ALL THE ID'S FROM THE RANKING URL AND STORING IT INTO AN EMPTY ARRAY
-  $.getJSON(rankings, (info) => {
+  $.getJSON(apiKeyForRankings, (info) => {
     teamsObject = info;
   });
 
@@ -14,9 +13,9 @@ $(document).ready(() => {
 
   $('.searchInput').on('change', (event) => {
 
-    let valOfSearchBox = event.target.value;
-    let index = -1;
-    let foundTeam = undefined;
+    var valOfSearchBox = event.target.value;
+    var index = -1;
+    var foundTeam = undefined;
 
     for (var i = 0; i < teamsObject.league.season.leagues.length && (foundTeam == undefined); i++) {
       var thisLeague = teamsObject.league.season.leagues[i];
@@ -36,29 +35,37 @@ $(document).ready(() => {
 
     if (foundTeam != undefined) {
 
-      let teamProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/teams/${thisTeam.id}/profile.json?api_key=` + apikey;
+      var teamProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/teams/${thisTeam.id}/profile.json?api_key=` + apiKey1;
       $.getJSON(teamProfile, (info) => {
         teamsProfile = info;
 
-        let player = teamsProfile.players;
+        var player = teamsProfile.players;
 
         $('.innerTeamInfo').html(
-          `<tr><td> ${info.name} </td><td> ${info.market}</td><td> ${info.league.name} </td><td> ${info.division.name} </td></tr>`
+          `<tr>
+            <td> ${info.name} </td>
+            <td> ${info.market}</td>
+            <td> ${info.league.name}</td>
+            <td> ${info.division.name}</td>
+          </tr>`
         );
 
         for (var i = 0; i < player.length; i++) {
 
-          // let playerObjectHitting;
-          // let playerObjectFielding;
+          // var playerObjectHitting;
+          // var playerObjectFielding;
 
           $('.innerPlayerInfo').append(
             `<tr>
-                <td class="table-header-mob"> ${teamsProfile.players[i].full_name} </td>
-                <td class="table-header-mob"> ${info.abbr}</td>
-                <td class="table-header-mob"> ${teamsProfile.players[i].position} </td>
-                <td class="table-header-web"> ${teamsProfile.players[i].jersey_number} </td>
+                <td> ${teamsProfile.players[i].full_name} </td>
+                <td> ${info.abbr}</td>
+                <td> ${teamsProfile.players[i].position} </td>
+                <td> ${teamsProfile.players[i].jersey_number} </td>
               </tr>`
           );
+
+          // STORE THIS IN A VARIABLE -> ${teamsProfile.players[i].full_name} [PLAYERS NAME]
+          // AND GET ID FROM THIS INFORMATIOS
 
           //not working
           // <td> ${playerObjectHitting.statistics.hitting.overall.games.play}</td>
@@ -71,7 +78,7 @@ $(document).ready(() => {
           // <td"> ${teamsProfile.players[i].bat_hand} </td>
           // <td"> ${teamsProfile.players[i].pro_debut} </td>
 
-          // let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${player[i].id}/profile.json?api_key=` + keyapiStar2;
+          // var playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${player[i].id}/profile.json?api_key=` + keyapiStar2;
           // $.getJSON(playerProfile, function(data) {
           //
           //   $('.innerPlayerInfo').html('');

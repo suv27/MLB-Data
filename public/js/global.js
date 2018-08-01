@@ -1,6 +1,13 @@
+// API INFORMATION
+let apiKey1 = 'mevcburkuv7wpjvpnvc6gaw5';
+let apiKey2 = '656e58ujs4q8a5cbpcabebea';
+let apiKey3 = 'xpqwhygqcbzx39x3mgsq4hc9';
+let apiKeyForRankings = 'http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/rankings.json?api_key=' + apiKey1;
+let apiKeyForStanding = 'http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=' + apiKey1;
+
 $(document).ready(() => {
 
-  var myJSON = {
+  let myJSON = {
     'particles': {
       'number': {
         'value': 200
@@ -22,7 +29,7 @@ $(document).ready(() => {
         'enable': true,
         'speed': 2,
         'direction': 'random',
-        'straight': false
+        'straight': false,
       },
     },
     'interactivity': {
@@ -34,7 +41,7 @@ $(document).ready(() => {
       },
       'modes': {
         'push': {
-          'particles_nb': 12
+          'particles_nb': 12,
         },
       },
     },

@@ -20,13 +20,13 @@
 
 /* TABLE HEADERS AND DATA */
 th, td {
-  width: 0.07%;
+  width: 16%;
   font-weight: 800;
   padding: 10px;
   border: 1px solid white;
   background-color: #FFF;
 }
-th { background-color: #f1f1f1; }
+th { background-color: #dcdcdc; }
 
 /* HEADER FOR EACH LEAGUE */
 .alHeader, .nlHeader {

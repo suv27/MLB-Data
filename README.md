@@ -26,7 +26,7 @@ https://www.npmjs.com/get-npm
 ---
 * *body-parser*
 * *express*
-* *nodemon*
+* *nodemon* - optional
 * *ejs*
 * *pg*
 

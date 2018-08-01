@@ -1,12 +1,8 @@
 $(document).ready(() => {
-
-  let sportradarApiKey = '656e58ujs4q8a5cbpcabebea';
-  let keyPatrick = 'mevcburkuv7wpjvpnvc6gaw5';
-  let standings = 'http://api.sportradar.us/mlb/trial/v6.5/en/seasons/2018/REG/standings.json?api_key=' + keyPatrick;
   let data = [];
 
   // GETTING AND ISPLAYING THE STANDINGS FOR EACH LEAGUE
-  $.getJSON(standings, (info) => {
+  $.getJSON(apiKeyForStanding, (info) => {
     data.push(info);
     let nationalLeague = data[0].league.season.leagues[0];
     let americanLeague = data[0].league.season.leagues[1];
@@ -55,7 +51,7 @@ $(document).ready(() => {
 
     // APPENDING THROUGH ALL THE EAST TEAMS AND THEIR INFORMATION
     teamALEHeader();
-    for (var i = 0; i < alEastTeams.length; i++) {
+    for (let i = 0; i < alEastTeams.length; i++) {
       $('.bodyForALE').append(
         `<tr><td>` + alEastTeams[i].name + `</td>
              <td>` + alEastTeams[i].win  + `</td>
@@ -69,7 +65,7 @@ $(document).ready(() => {
 
     // APPENDING THROUGH ALL THE CENTRAL TEAMS AND THEIR INFORMATION
     teamALCHeader();
-    for (var i = 0; i < alCentralTeams.length; i++) {
+    for (let i = 0; i < alCentralTeams.length; i++) {
       $('.bodyForALC').append(
         `<tr><td>` + alCentralTeams[i].name + `</td>
              <td>` + alCentralTeams[i].win  + `</td>
@@ -83,7 +79,7 @@ $(document).ready(() => {
 
     // APPENDING THROUGH ALL THE WEST TEAMS AND THEIR INFORMATION
     teamALWHeader();
-    for (var i = 0; i < alWestTeams.length; i++) {
+    for (let i = 0; i < alWestTeams.length; i++) {
       $('.bodyForALW').append(
         `<tr><td>` + alWestTeams[i].name + `</td>
              <td>` + alWestTeams[i].win  + `</td>
@@ -133,7 +129,7 @@ $(document).ready(() => {
 
     // APPENDING THROUGH ALL THE EAST TEAMS AND THEIR INFORMATION
     teamNLEHeader();
-    for (var i = 0; i < nlEastTeams.length; i++) {
+    for (let i = 0; i < nlEastTeams.length; i++) {
       $('.bodyForNLE').append(
         `<tr><td>` + nlEastTeams[i].name + `</td>
              <td>` + nlEastTeams[i].win  + `</td>
@@ -146,7 +142,7 @@ $(document).ready(() => {
     }
 
     teamNLCHeader();
-    for (var i = 0; i < nlCentralTeams.length; i++) {
+    for (let i = 0; i < nlCentralTeams.length; i++) {
       $('.bodyForNLC').append(
         `<tr><td>` + nlCentralTeams[i].name + `</td>
              <td>` + nlCentralTeams[i].win  + `</td>
@@ -159,7 +155,7 @@ $(document).ready(() => {
     }
 
     teamNLWHeader();
-    for (var i = 0; i < nlWestTeams.length; i++) {
+    for (let i = 0; i < nlWestTeams.length; i++) {
       $('.bodyForNLW').append(
         `<tr><td>` + nlWestTeams[i].name + `</td>
              <td>` + nlWestTeams[i].win  + `</td>
