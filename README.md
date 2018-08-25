@@ -2,6 +2,8 @@
 ---
 All your Major League Baseball teams and their players.
 
+![mlb-small](https://user-images.githubusercontent.com/36493537/44617138-9f089500-a82b-11e8-88ff-f0111d7f9447.gif)
+
 ### Description  
 NodeJS App that provides the user with the standings of all 30 teams and all division in the Major League.  
 Also, you are able to search for a specific team and see the list of players on that team and some of their stats.  
