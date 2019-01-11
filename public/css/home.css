@@ -1,4 +1,20 @@
 /* TEAMS LOGO */
-.teamsLogo{ position: absolute; }
+.teamsLogo{
+    display: flex;
+    flex-flow: row wrap;
+}
+
 /* TEAMS LOGO */
-img.logo{ width: 32%; left: 1.5%; position: relative; }
+img.logo{
+    width: 320px;
+    height: 320px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+@media only screen and (max-width: 1200px){
+    img.logo{
+        width: 250px;
+        height: 250px;
+    }
+}
