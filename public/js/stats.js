@@ -1,31 +1,24 @@
 $(document).ready(() => {
 
-  var teamsObject = [];
-  var teamsProfile = [];
-  var teamProfile = '';
+  let teamsObject = [];
+  let teamsProfile = [];
 
   $('.player-stats').hide();
 
-  // GETTING ALL THE ID'S FROM THE RANKING URL AND STORING IT INTO AN EMPTY ARRAY
   $.getJSON(apiKeyForRankings, (info) => {
     teamsObject = info;
   });
 
-  //  USING THAT ID TO STORE IT INTO THE TEAM PROFILE URL TO GET ITS DATA
-
   $('.searchInput').on('change', (event) => {
+    const valOfSearchBox = event.target.value;
+    let foundTeam = undefined;
 
-    var valOfSearchBox = event.target.value;
-    var index = -1;
-    var foundTeam = undefined;
-
-    for (var i = 0; i < teamsObject.league.season.leagues.length && (foundTeam == undefined); i++) {
-      var thisLeague = teamsObject.league.season.leagues[i];
-      for (var j = 0; j < thisLeague.divisions.length && (foundTeam == undefined); j++) {
-        var thisDivision = thisLeague.divisions[j];
-        for (var k = 0; k < thisDivision.teams.length && (foundTeam == undefined); k++) {
-          var thisTeam = thisDivision.teams[k];
-
+    for (const i = 0; i < teamsObject.league.season.leagues.length && (foundTeam == undefined); i++) {
+      const thisLeague = teamsObject.league.season.leagues[i];
+      for (const j = 0; j < thisLeague.divisions.length && (foundTeam == undefined); j++) {
+        const thisDivision = thisLeague.divisions[j];
+        for (const k = 0; k < thisDivision.teams.length && (foundTeam == undefined); k++) {
+          const thisTeam = thisDivision.teams[k];
           if (valOfSearchBox.toLowerCase() === thisTeam.name.toLowerCase() ||
             valOfSearchBox.toLowerCase() === thisTeam.market.toLowerCase() ||
             valOfSearchBox.toLowerCase() === thisTeam.abbr.toLowerCase()) {
@@ -37,11 +30,11 @@ $(document).ready(() => {
 
     if (foundTeam != undefined) {
 
-      var teamProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/teams/${thisTeam.id}/profile.json?api_key=` + apiKey1;
+      const teamProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/teams/${thisTeam.id}/profile.json?api_key=` + apiKey1;
       $.getJSON(teamProfile, (info) => {
         teamsProfile = info;
 
-        var player = teamsProfile.players;
+        let player = teamsProfile.players;
 
         $('.innerTeamInfo').html(
           `<tr>
@@ -52,10 +45,10 @@ $(document).ready(() => {
           </tr>`
         );
 
-        for (var i = 0; i < player.length; i++) {
+        for (let i = 0; i < player.length; i++) {
 
-          // var playerObjectHitting;
-          // var playerObjectFielding;
+          // let playerObjectHitting;
+          // let playerObjectFielding;
 
           $('.innerPlayerInfo').append(
             `<tr>
@@ -66,7 +59,7 @@ $(document).ready(() => {
               </tr>`
           );
 
-          // STORE THIS IN A VARIABLE -> ${teamsProfile.players[i].full_name} [PLAYERS NAME]
+          // STORE THIS IN A letIABLE -> ${teamsProfile.players[i].full_name} [PLAYERS NAME]
           // AND GET ID FROM THIS INFORMATIOS
 
           //not working
@@ -80,7 +73,7 @@ $(document).ready(() => {
           // <td"> ${teamsProfile.players[i].bat_hand} </td>
           // <td"> ${teamsProfile.players[i].pro_debut} </td>
 
-          // var playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${player[i].id}/profile.json?api_key=` + keyapiStar2;
+          // let playerProfile = `http://api.sportradar.us/mlb/trial/v6.5/en/players/${player[i].id}/profile.json?api_key=` + keyapiStar2;
           // $.getJSON(playerProfile, function(data) {
           //
           //   $('.innerPlayerInfo').html('');
